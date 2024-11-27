@@ -1,5 +1,4 @@
-# main.py
-from BaseDeDatosDocumental import Database
+from BaseDeDatosDocument import BaseDeDatosDocumental
 import json
 
 def mostrar_menu():
@@ -13,7 +12,7 @@ def mostrar_menu():
     return input("Seleccione una opción: ")
 
 def main():
-    db = Database("MiBaseDeDatos")
+    db = BaseDeDatosDocumental()
 
     while True:
         opcion = mostrar_menu()
