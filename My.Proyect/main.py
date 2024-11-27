@@ -26,7 +26,7 @@ def main():
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
             collection = db.get_collection(nombre_coleccion)
             ruta_csv = input("Ingrese la ruta del archivo CSV: ")
-            collection.import_csv(nombre_coleccion, ruta_csv)
+            collection.import_from_csv(nombre_coleccion, ruta_csv)
         
         elif opcion == "3":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
