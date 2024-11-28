@@ -26,7 +26,11 @@ def main():
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
             collection = db.get_collection(nombre_coleccion)
             ruta_csv = input("Ingrese la ruta del archivo CSV: ")
-            collection.import_from_csv(nombre_coleccion, ruta_csv)
+            if coleccion:
+                coleccion.import_from_csv(nombre_coleccion, ruta_csv)
+            else:
+                print(f"La colección '{nombre_coleccion}' no existe.")
+            
         
         elif opcion == "3":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
