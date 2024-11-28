@@ -33,7 +33,7 @@ def main():
         
         elif opcion == "3":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
-            doc_id = input("Ingrese el ID del documento: ")
+            doc_id = int(input("Ingrese el ID del documento: "))
             coleccion = db.get_collection(nombre_coleccion)
             if coleccion:
                 documento = coleccion.search_document(doc_id)
@@ -47,14 +47,14 @@ def main():
         
         elif opcion == "4":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
-            doc_id = input("Ingrese el ID del documento a eliminar: ")
+            doc_id = int(input("Ingrese el ID del documento a eliminar: "))
             coleccion = db.get_collection(nombre_coleccion)
             if coleccion:
                 coleccion.delete_document(doc_id)
         
         elif opcion == "5":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
-            coleccion = db.search_colection(nombre_coleccion)
+            coleccion = db.get_collection(nombre_coleccion)
             if coleccion:
                 documentos = coleccion.list_documents()
                 if documentos:
