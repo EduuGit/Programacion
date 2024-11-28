@@ -22,7 +22,7 @@ class Collection:
     def import_from_csv(self, rutacsv): 
         with open(rutacsv, 'r') as file: 
             contenido = file.readline().replace('\n', '') #Reemplazar el \n(saltodelinea) por caracter vacío  
-            str2 = str2Doc(contenido)  
+            str2 = Str2Doc(contenido)  
             linea = file.readline() 
             incremental = 0 
             while linea != "": 
@@ -30,3 +30,8 @@ class Collection:
                 self.add_document(nuevo_doc) 
                 incremental = incremental + 1 
                 linea = file.readline()
+    def list_documents(self) -> list[Document]: 
+            total = [] 
+            for i in self.documents: 
+                total.append(self.documents[i]) 
+            return total

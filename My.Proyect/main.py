@@ -36,7 +36,7 @@ def main():
             doc_id = input("Ingrese el ID del documento: ")
             coleccion = db.get_collection(nombre_coleccion)
             if coleccion:
-                documento = coleccion.get_document(doc_id)
+                documento = coleccion.search_document(doc_id)
                 if documento:
                     print("Documento encontrado:")
                     print(documento)
@@ -54,7 +54,7 @@ def main():
         
         elif opcion == "5":
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
-            coleccion = db.get_collection(nombre_coleccion)
+            coleccion = db.search_colection(nombre_coleccion)
             if coleccion:
                 documentos = coleccion.list_documents()
                 if documentos:
