@@ -1,5 +1,7 @@
 from BaseDeDatosDocument import BaseDeDatosDocumental
-
+from collection import Collection
+from document import Document
+import json
 
 def mostrar_menu():
     print("\n--- Base de Datos Documental ---")
@@ -26,10 +28,7 @@ def main():
             nombre_coleccion = input("Ingrese el nombre de la colección: ")
             collection = db.get_collection(nombre_coleccion)
             ruta_csv = input("Ingrese la ruta del archivo CSV: ")
-            if coleccion:
-                coleccion.import_from_csv(nombre_coleccion, ruta_csv)
-            else:
-                print(f"La colección '{nombre_coleccion}' no existe.")
+            collection.import_from_csv(ruta_csv)
             
         
         elif opcion == "3":

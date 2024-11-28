@@ -1,4 +1,5 @@
 from collection import Collection
+from str2Doc import Str2Doc
 
 class BaseDeDatosDocumental:
     def __init__(self):

@@ -1,3 +1,4 @@
+from str2Doc import Str2Doc
 from document import Document
 
 class Collection:
@@ -18,11 +19,14 @@ class Collection:
     def __str__(self):
         return f"Collecion {self.name} con {len(self.documents)} documentos"
     ###########
-    def import_from_csv(self, file_path):
-        with open(file_path, mode='r') as file:
-            csv_reader = csv.DictReader(file)
-            for row in csv_reader:
-                doc_id = row['id'] 
-                contenido = {key: value for key, value in row.items() if key != 'id'} 
-                document = Document(doc_id, contenido) 
-                self.add_document(document)
+    def import_from_csv(self, rutacsv): 
+        with open(rutacsv, 'r') as file: 
+            contenido = file.readline().replace('\n', '') #Reemplazar el \n(saltodelinea) por caracter vacío  
+            str2 = str2Doc(contenido)  
+            linea = file.readline() 
+            incremental = 0 
+            while linea != "": 
+                nuevo_doc = Document(incremental, str2.convert(linea.strip('\n'))) 
+                self.add_document(nuevo_doc) 
+                incremental = incremental + 1 
+                linea = file.readline()
